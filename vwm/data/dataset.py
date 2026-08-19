@@ -3,7 +3,7 @@ import random
 from pytorch_lightning import LightningDataModule
 from torch.utils.data import DataLoader, Dataset
 
-from .subsets import YouTubeDataset, NuScenesDataset
+from .subsets import YouTubeDataset, NuScenesDataset, AsphaltDataset
 
 
 def dataset_mapping(subset_list: list, target_height: int, target_width: int, num_frames: int):
@@ -16,6 +16,10 @@ def dataset_mapping(subset_list: list, target_height: int, target_width: int, nu
         elif subset_name == "NuScenes":
             datasets.append(
                 NuScenesDataset(target_height=target_height, target_width=target_width, num_frames=num_frames)
+            )
+        elif subset_name == "Asphalt":
+            datasets.append(
+                AsphaltDataset(target_height=target_height, target_width=target_width, num_frames=num_frames)
             )
         else:
             raise NotImplementedError(f"Please define {subset_name} as a subset")
@@ -64,7 +68,8 @@ class Sampler(LightningDataModule):
         super().__init__()
         self.batch_size = batch_size
         self.num_workers = num_workers
-        self.prefetch_factor = prefetch_factor if num_workers > 0 else 0
+        # prefetch_factor is only valid when num_workers > 0
+        self.prefetch_factor = prefetch_factor if num_workers > 0 else None
         self.shuffle = shuffle
         self.train_dataset = MultiSourceSamplerDataset(
             subsets=subsets, probs=probs, samples_per_epoch=samples_per_epoch,
@@ -74,29 +79,21 @@ class Sampler(LightningDataModule):
     def prepare_data(self):
         pass
 
+    def _build_dataloader(self, shuffle):
+        kwargs = {
+            "batch_size": self.batch_size,
+            "shuffle": shuffle,
+            "num_workers": self.num_workers,
+        }
+        if self.num_workers > 0:
+            kwargs["prefetch_factor"] = self.prefetch_factor
+        return DataLoader(self.train_dataset, **kwargs)
+
     def train_dataloader(self):
-        return DataLoader(
-            self.train_dataset,
-            batch_size=self.batch_size,
-            shuffle=self.shuffle,
-            num_workers=self.num_workers,
-            prefetch_factor=self.prefetch_factor
-        )
+        return self._build_dataloader(shuffle=self.shuffle)
 
     def test_dataloader(self):
-        return DataLoader(
-            self.train_dataset,  # we disable online testing to improve training efficiency
-            batch_size=self.batch_size,
-            shuffle=False,
-            num_workers=self.num_workers,
-            prefetch_factor=self.prefetch_factor
-        )
+        return self._build_dataloader(shuffle=False)
 
     def val_dataloader(self):
-        return DataLoader(
-            self.train_dataset,
-            batch_size=self.batch_size,
-            shuffle=False,
-            num_workers=self.num_workers,
-            prefetch_factor=self.prefetch_factor
-        )
+        return self._build_dataloader(shuffle=False)

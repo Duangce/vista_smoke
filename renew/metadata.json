@@ -1,0 +1,38 @@
+[
+  {
+    "scenario": "asphalt_wetness0",
+    "maneuver": "ebrake",
+    "vehicle": "cooperst",
+    "clip": "108_sun45",
+    "video_path": "/workspace/ws/Vista/data/asphalt_wetness0/ebrake/cooperst/108_sun45_back.mp4",
+    "csv_path": "/workspace/ws/Vista/data/asphalt_wetness0/ebrake/cooperst/108_sun45.csv",
+    "frame_dir": "/workspace/ws/Vista/renew/frames/asphalt_wetness0/ebrake/cooperst/108_sun45",
+    "num_frames": 152,
+    "fps": 30,
+    "resolution": "(1024, 576)"
+  },
+  {
+    "scenario": "asphalt_wetness0",
+    "maneuver": "ebrake",
+    "vehicle": "cooperst",
+    "clip": "108_sun5",
+    "video_path": "/workspace/ws/Vista/data/asphalt_wetness0/ebrake/cooperst/108_sun5_back.mp4",
+    "csv_path": "/workspace/ws/Vista/data/asphalt_wetness0/ebrake/cooperst/108_sun5.csv",
+    "frame_dir": "/workspace/ws/Vista/renew/frames/asphalt_wetness0/ebrake/cooperst/108_sun5",
+    "num_frames": 152,
+    "fps": 30,
+    "resolution": "(1024, 576)"
+  },
+  {
+    "scenario": "asphalt_wetness0",
+    "maneuver": "ebrake",
+    "vehicle": "cooperst",
+    "clip": "108_sun75",
+    "video_path": "/workspace/ws/Vista/data/asphalt_wetness0/ebrake/cooperst/108_sun75_back.mp4",
+    "csv_path": "/workspace/ws/Vista/data/asphalt_wetness0/ebrake/cooperst/108_sun75.csv",
+    "frame_dir": "/workspace/ws/Vista/renew/frames/asphalt_wetness0/ebrake/cooperst/108_sun75",
+    "num_frames": 152,
+    "fps": 30,
+    "resolution": "(1024, 576)"
+  }
+]

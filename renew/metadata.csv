@@ -1,0 +1,4 @@
+scenario,maneuver,vehicle,clip,video_path,csv_path,frame_dir,num_frames,fps,resolution
+asphalt_wetness0,ebrake,cooperst,108_sun45,/workspace/ws/Vista/data/asphalt_wetness0/ebrake/cooperst/108_sun45_back.mp4,/workspace/ws/Vista/data/asphalt_wetness0/ebrake/cooperst/108_sun45.csv,/workspace/ws/Vista/renew/frames/asphalt_wetness0/ebrake/cooperst/108_sun45,152,30,"(1024, 576)"
+asphalt_wetness0,ebrake,cooperst,108_sun5,/workspace/ws/Vista/data/asphalt_wetness0/ebrake/cooperst/108_sun5_back.mp4,/workspace/ws/Vista/data/asphalt_wetness0/ebrake/cooperst/108_sun5.csv,/workspace/ws/Vista/renew/frames/asphalt_wetness0/ebrake/cooperst/108_sun5,152,30,"(1024, 576)"
+asphalt_wetness0,ebrake,cooperst,108_sun75,/workspace/ws/Vista/data/asphalt_wetness0/ebrake/cooperst/108_sun75_back.mp4,/workspace/ws/Vista/data/asphalt_wetness0/ebrake/cooperst/108_sun75.csv,/workspace/ws/Vista/renew/frames/asphalt_wetness0/ebrake/cooperst/108_sun75,152,30,"(1024, 576)"
