@@ -1,0 +1,37 @@
+# Pin versions verified on the asphalt_wetness0 fine-tuning environment.
+# Install with: pip install -r requirements-asphalt.txt
+
+--extra-index-url https://download.pytorch.org/whl/cu118
+
+torch==2.1.2+cu118
+torchvision==0.16.2+cu118
+torchaudio==2.1.2+cu118
+xformers==0.0.23.post1+cu118
+
+numpy==1.26.4
+opencv-python-headless==4.8.1.78
+pytorch-lightning==2.6.5
+transformers==4.19.1
+kornia==0.8.2
+einops==0.8.2
+omegaconf==2.3.1
+open_clip_torch==3.3.0
+
+fire==0.7.1
+webdataset==1.0.2
+safetensors==0.8.0
+imageio==2.31.1
+imageio-ffmpeg==0.6.0
+wandb==0.28.2
+natsort==8.4.0
+packaging==25.0
+timm==1.0.28
+scipy==1.15.3
+pandas==2.3.3
+pillow==10.2.0
+tqdm==4.70.0
+torchmetrics==1.9.0
+
+# Also keep the original requirements for reference:
+# invisible-watermark, fairscale, deepspeed, streamlit, ninja, fsspec, tensorboardx, etc.
+# These can be installed from requirements.txt if needed.
